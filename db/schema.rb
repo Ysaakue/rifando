@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_08_03_215433) do
     t.boolean "allow_password_change", default: false
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "nickname"
     t.string "email"
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
