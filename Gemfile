@@ -42,3 +42,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # User authentication
 gem 'devise_token_auth'
+
+# Permissions
+gem 'cancancan'
