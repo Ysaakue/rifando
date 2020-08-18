@@ -1,12 +1,19 @@
 class RaflesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_rafle, only: [:show,:update,:destroy]
+  
   def index
     @rafles = Rafle.all
     if  !request.query_parameters.blank? && !request.query_parameters["filter"].blank?
       filter = request.query_parameters["filter"]
       if filter == "owner"
         @rafles = current_user.my_rafles
+      elsif filter == "participant"
+        @rafles = current_user.rafles
       end
+    end
+    if  !request.query_parameters.blank? && !request.query_parameters["future"].blank? && request.query_parameters["future"]
+      @rafles = @rafles.where('date_time >= ?', DateTime.now)
     end
     render json: @rafles
   end

@@ -2,7 +2,6 @@ class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, unless: :devise_controller?
-  load_and_authorize_resource
 
   rescue_from CanCan::AccessDenied do |exception|
     @error_message = exception.message
