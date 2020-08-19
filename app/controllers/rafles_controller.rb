@@ -59,7 +59,7 @@ class RaflesController < ApplicationController
   private
   def rafle_params
     params.require(:rafle).permit(:name,:date_time,:description,:numbers_quantity,
-      :premium,:winner_number,:image_url,:owner_id
+      :premium,:winner_number,:image_url,:owner_id,:price
     )
   end
 
